@@ -179,8 +179,8 @@ void delete_at_pos(){
             temp = temp->next;
             i++;
         }
-        free(q->next);
-        q->next = temp;
+        q->next = temp->next;
+        free(temp);
   }
 }
 void delete_at_end(){
@@ -196,6 +196,13 @@ void delete_at_end(){
     }
     q->next = NULL;
     free(temp->next);
+    /*
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = NULL;
+    */
 
 }
 int length(){
