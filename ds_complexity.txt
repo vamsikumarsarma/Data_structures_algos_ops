@@ -1,0 +1,30 @@
+Array:
+-----
+insert --o(n)
+lookup --o(1)
+delete --o(n)
+append --o(1) 
+space  --o(n)
+
+strengths -- fast look ups and fast appends at the end
+weakness  -- fixed size and costly insertions and deletions
+
+Linkedlist:
+---------- 
+insert --o(n)
+lookup --o(n)
+delete --o(n)
+space  --o(n)
+prepend -- o(1) -- if a tail is maintained
+append --o(1)
+
+strengths -- fast operations at end and flexible size
+weakness  -- costly lookups
+
+BST:
+----
+access -- o(logn)
+search -- o(logn)
+insert -- o(logn)
+deletion -- o(logn)
+
