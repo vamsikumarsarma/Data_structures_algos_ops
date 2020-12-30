@@ -1,0 +1,28 @@
+Macros Pitfalls
+#define SQR(x) x*x
+Operator Precedence Errors: SQR(a + b); is expanded to: a + b*a + band not: (a + b)*(a + b)Solution :Put parentheses (or braces) around Macro#define SQR(x) ((x) * (x))
+Side Effects Errors: SQR(i++);expanded to: i++ * i++which increments i twice.
+Unnecessary Function Calls: SQR(long_function(a,b,c));will evaluate the function twice.
+There are no general solutions for the last two errors - so be cautious and wise !
+
+
+#include <stdio.h>
+#define MULTIPLY(a, b) a*b
+int main()
+{
+    // The macro is expanded as 2 + 3 * 3 + 5, not as 5*8
+    printf("%d", MULTIPLY(2+3, 3+5));
+    return 0;
+}
+// Output: 16
+
+
+include <stdio.h>
+//here, instead of writing a*a we write (a)*(b)
+#define MULTIPLY(a, b) (a)*(b)
+int main()
+{
+    // The macro is expanded as (2 + 3) * (3 + 5), as 5*8
+    printf("%d", MULTIPLY(2+3, 3+5));
+    return 0;
+}
